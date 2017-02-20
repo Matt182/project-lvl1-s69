@@ -10,3 +10,4 @@
 
 # Запуск
 - brain-games
+- brain-even
