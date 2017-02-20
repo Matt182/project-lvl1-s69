@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
-import run from "../index.js";
+import run from "..";
 
 run();
