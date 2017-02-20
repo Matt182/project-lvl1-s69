@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "scripts": {
     "babel-node": "babel-node",
