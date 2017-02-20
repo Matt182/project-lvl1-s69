@@ -2,7 +2,6 @@
   "name": "lev_project-lvl1-s69",
   "version": "2.0.0",
   "description": "",
-  "main": "src/bin/brain-games.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
