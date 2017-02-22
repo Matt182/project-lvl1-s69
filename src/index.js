@@ -11,7 +11,8 @@ const gameLoop = (name, makeTurn, rightGuessNum, totalRightGuessNum, question) =
   if (rightGuessNum === totalRightGuessNum) return;
   const turn = makeTurn(name);
   const result = turn(question());
-  gameLoop(name, makeTurn, result ? rightGuessNum + 1 : rightGuessNum, totalRightGuessNum);
+  const guessNum = result ? rightGuessNum + 1 : rightGuessNum;
+  gameLoop(name, makeTurn, guessNum, totalRightGuessNum, question);
 };
 
 export default (game) => {

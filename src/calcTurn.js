@@ -3,7 +3,7 @@ import getRandomInt from './randomInt';
 
 const getRandomSign = () => {
   const signs = ['+', '-', '*'];
-  const sign = signs[getRandomInt(signs.length)];
+  const sign = signs[getRandomInt(signs.length - 1)];
   return sign;
 };
 
