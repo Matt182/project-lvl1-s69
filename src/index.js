@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 import evenTurn from './evenTurn';
 import calcTurn from './calcTurn';
+import gcdTurn from './gcdTurn';
 
 const askName = () => {
   const name = readlineSync.question('May I have your name? ');
@@ -29,6 +30,16 @@ export default (game) => {
           trueValue: ['yes'],
           falseValue: ['no'],
         });
+        return answer;
+      };
+      break;
+    }
+
+    case 'gcd': {
+      message = 'Find the greatest common divisor of given numbers.\n';
+      gameTurn = gcdTurn;
+      question = () => {
+        const answer = readlineSync.questionInt('Your answer: ');
         return answer;
       };
       break;

@@ -1,4 +1,3 @@
-import { makePair, getQuestion, getAnswer } from './turnPair';
 import getRandomInt from './randomInt';
 
 const isEven = (number) => {
@@ -20,10 +19,11 @@ const printNotCorrect = (name, answer) => {
 export default (name) => {
   const maxNumber = 50;
   const randomInt = getRandomInt(maxNumber);
-  const turn = makePair(randomInt, isEven(randomInt));
-  console.log(`Question: ${getQuestion(turn)}`);
+  const correctAnswer = isEven(randomInt);
+  const question = randomInt;
+  console.log(`Question: ${question}`);
   return (answer) => {
-    const result = getAnswer(turn) === answer;
+    const result = correctAnswer === answer;
     if (result) {
       printCorrect();
       return true;

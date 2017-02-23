@@ -1,4 +1,3 @@
-import { makePair, getQuestion, getAnswer } from './turnPair';
 import getRandomInt from './randomInt';
 
 const getRandomSign = () => {
@@ -33,15 +32,15 @@ export default (name) => {
   const rvalue = getRandomInt(maxNumber);
   const sign = getRandomSign();
   const expressionAnswer = getExpressionAnswer(sign, lvalue, rvalue);
-  const turn = makePair(`${lvalue} ${sign} ${rvalue}`, expressionAnswer);
-  console.log(`Question: ${getQuestion(turn)}`);
+  const question = `${lvalue} ${sign} ${rvalue}`;
+  console.log(`Question: ${question}`);
   return (answer) => {
-    const result = getAnswer(turn) === answer;
+    const result = expressionAnswer === answer;
     if (result) {
       printCorrect();
       return true;
     }
-    printNotCorrect(name, answer, getAnswer(turn));
+    printNotCorrect(name, answer, expressionAnswer);
     return false;
   };
 };
