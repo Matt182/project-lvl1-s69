@@ -6,6 +6,7 @@ import { prepareRandom } from './randomInt';
 
 export default () => {
   const message = 'Answer "yes" if number even otherwise answer "no".\n';
+
   const turnGenerator = (randomFunction) => {
     const random = randomFunction;
     return () => {
@@ -15,21 +16,25 @@ export default () => {
       return result;
     };
   };
+
   const randomFunction = prepareRandom(0, 100);
   const variableGenerator = turnGenerator(randomFunction);
   const turnVariable = (variable) => {
     const result = variable();
     return result;
   };
+
   const correctMessage = () => {
     console.log('Correct!');
   };
+
   const wrongMessage = (name, answer) => {
     const correct = answer ? 'no' : 'yes';
     const notCorrect = answer ? 'yes' : 'no';
     console.log(`'${notCorrect}' is wrong ;(. Correct answer was '${correct}'`);
     console.log(`Let's try again, ${name}`);
   };
+
   const turn = makeTurn(turnVariable, variableGenerator, correctMessage, wrongMessage);
   const question = () => {
     const answer = readlineSync.question('Your answer: ', {
@@ -38,5 +43,6 @@ export default () => {
     });
     return answer;
   };
+
   game(message, turn, 3, question);
 };

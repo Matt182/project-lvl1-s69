@@ -7,6 +7,7 @@ import { prepareRandom } from './randomInt';
 
 export default () => {
   const message = 'Find the greatest common divisor of given numbers.\n';
+
   const turnGenerator = (randomIntFunction) => {
     const randomInt = randomIntFunction;
     return () => {
@@ -18,12 +19,16 @@ export default () => {
       return result;
     };
   };
+
   const getRandomInt = prepareRandom(0, 100);
+
   const variableGenerator = turnGenerator(getRandomInt);
+
   const turnVariable = (variable) => {
     const result = variable();
     return result;
   };
+
   const wrongMessage = (name, answer, correct) => {
     console.log(`'${answer}' is wrong ;(. Correct answer was '${correct}'`);
     console.log(`Let's try again, ${name}`);
@@ -32,10 +37,13 @@ export default () => {
   const correctMessage = () => {
     console.log('Correct!');
   };
+
   const turn = makeTurn(turnVariable, variableGenerator, correctMessage, wrongMessage);
+
   const question = () => {
     const answer = readlineSync.questionInt('Your answer: ');
     return answer;
   };
+
   game(message, turn, 3, question);
 };

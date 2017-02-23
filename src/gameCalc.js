@@ -13,6 +13,7 @@ const getRandomSign = () => {
 
 export default () => {
   const message = 'What is the result of the expression?\n';
+
   const turnGenerator = (randomIntFunction, randomSignFunction) => {
     const randomInt = randomIntFunction;
     const randomSign = randomSignFunction;
@@ -26,12 +27,15 @@ export default () => {
       return result;
     };
   };
+
   const randomFunction = prepareRandom(0, 100);
+
   const variableGenerator = turnGenerator(randomFunction, getRandomSign);
   const turnVariable = (variable) => {
     const result = variable();
     return result;
   };
+
   const correctMessage = () => {
     console.log('Correct!');
   };
@@ -40,10 +44,13 @@ export default () => {
     console.log(`'${answer}' is wrong ;(. Correct answer was '${correct}'`);
     console.log(`Let's try again, ${name}`);
   };
+
   const turn = makeTurn(turnVariable, variableGenerator, correctMessage, wrongMessage);
+
   const question = () => {
     const answer = readlineSync.questionInt('Your answer: ');
     return answer;
   };
+
   game(message, turn, 3, question);
 };
