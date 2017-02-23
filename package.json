@@ -1,6 +1,6 @@
 {
   "name": "lev_project-lvl1-s69",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
@@ -37,6 +37,7 @@
   "dependencies": {
     "readline-sync": "^1.4.6",
     "hexlet-pairs": "^0.1.4",
-    "gcd": "^0.0.1"
+    "gcd": "^0.0.1",
+    "to-digits": "^1.2.1"
   }
 }
