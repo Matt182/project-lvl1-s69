@@ -38,6 +38,7 @@
     "readline-sync": "^1.4.6",
     "hexlet-pairs": "^0.1.4",
     "gcd": "^0.0.1",
-    "to-digits": "^1.2.1"
+    "to-digits": "^1.2.1",
+    "mathjs": "^3.9.3"
   }
 }
