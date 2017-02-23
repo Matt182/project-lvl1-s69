@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
-import run from '../gameEven';
+import run from '../games/gameEven';
 
 run();

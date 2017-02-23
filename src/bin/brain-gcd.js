@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
-import run from '../gameGcd';
+import run from '../games/gameGcd';
 
 run();
