@@ -3,7 +3,7 @@ import mathjs from 'mathjs';
 import { cons } from 'hexlet-pairs';
 import game from './game';
 import makeTurn from './turn';
-import getRandomInt from './randomInt';
+import { prepareRandom, getRandomInt } from './randomInt';
 
 const getRandomSign = () => {
   const signs = ['+', '-', '*'];
@@ -26,7 +26,8 @@ export default () => {
       return result;
     };
   };
-  const variableGenerator = turnGenerator(getRandomInt, getRandomSign);
+  const randomFunction = prepareRandom(0, 100);
+  const variableGenerator = turnGenerator(randomFunction, getRandomSign);
   const turnVariable = (variable) => {
     const result = variable();
     return result;
@@ -44,5 +45,5 @@ export default () => {
     const answer = readlineSync.questionInt('Your answer: ');
     return answer;
   };
-  game(message, turn, question);
+  game(message, turn, 3, question);
 };

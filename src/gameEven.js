@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { cons } from 'hexlet-pairs';
 import game from './game';
 import makeTurn from './turn';
-import getRandomInt from './randomInt';
+import { prepareRandom } from './randomInt';
 
 export default () => {
   const message = 'Answer "yes" if number even otherwise answer "no".\n';
@@ -15,7 +15,8 @@ export default () => {
       return result;
     };
   };
-  const variableGenerator = turnGenerator(getRandomInt);
+  const randomFunction = prepareRandom(0, 100);
+  const variableGenerator = turnGenerator(randomFunction);
   const turnVariable = (variable) => {
     const result = variable();
     return result;
@@ -37,5 +38,5 @@ export default () => {
     });
     return answer;
   };
-  game(message, turn, question);
+  game(message, turn, 3, question);
 };

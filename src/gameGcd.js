@@ -3,7 +3,7 @@ import { cons } from 'hexlet-pairs';
 import gcd from 'gcd';
 import game from './game';
 import makeTurn from './turn';
-import getRandomInt from './randomInt';
+import { prepareRandom } from './randomInt';
 
 export default () => {
   const message = 'Find the greatest common divisor of given numbers.\n';
@@ -18,6 +18,7 @@ export default () => {
       return result;
     };
   };
+  const getRandomInt = prepareRandom(0, 100);
   const variableGenerator = turnGenerator(getRandomInt);
   const turnVariable = (variable) => {
     const result = variable();
@@ -36,5 +37,5 @@ export default () => {
     const answer = readlineSync.questionInt('Your answer: ');
     return answer;
   };
-  game(message, turn, question);
+  game(message, turn, 3, question);
 };

@@ -13,11 +13,11 @@ const gameLoop = (name, makeTurn, rightGuessNum, totalRightGuessNum, question) =
   gameLoop(name, makeTurn, guessNum, totalRightGuessNum, question);
 };
 
-export default (message, turn, question) => {
+export default (message, turn, rounds, question) => {
   console.log('Welcome to the Brain Games!\n');
   console.log(message);
   const name = askName();
   console.log(`\nHello, ${name}!`);
-  gameLoop(name, turn, 0, 3, question);
+  gameLoop(name, turn, 0, rounds, question);
   console.log(`Congratulations, ${name}!`);
 };
