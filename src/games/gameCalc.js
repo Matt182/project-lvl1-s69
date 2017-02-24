@@ -1,8 +1,9 @@
 import readlineSync from 'readline-sync';
-import mathjs from 'mathjs';
 import { cons } from 'hexlet-pairs';
 import game from '../game';
 import { prepareRandom, getRandomInt } from '../randomInt';
+
+const rightGuessNum = 3;
 
 const signs = ['+', '-', '*'];
 
@@ -20,17 +21,10 @@ const getTurnVariable = () => {
   const rvalue = randomIntFunction();
   const sign = getRandomSign();
   const expression = `${lvalue} ${sign} ${rvalue}`;
-  const expressionAnswer = mathjs.eval(expression);
+  /* eslint no-eval: off */
+  const expressionAnswer = eval(expression);
   const result = cons(expression, expressionAnswer);
   return result;
-};
-
-const correctMessage = () => {
-  console.log('Correct!');
-};
-
-const wrongMessage = (answer, correct) => {
-  console.log(`'${answer}' is wrong ;(. Correct answer was '${correct}'`);
 };
 
 const question = () => {
@@ -39,5 +33,5 @@ const question = () => {
 };
 
 export default () => {
-  game(message, getTurnVariable, 3, question, correctMessage, wrongMessage);
+  game(message, getTurnVariable, rightGuessNum, question);
 };

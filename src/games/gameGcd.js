@@ -4,6 +4,8 @@ import gcd from 'gcd';
 import game from '../game';
 import { prepareRandom } from '../randomInt';
 
+const rightGuessNum = 3;
+
 const randomIntFunction = prepareRandom(0, 100);
 
 const message = 'Find the greatest common divisor of given numbers.\n';
@@ -17,19 +19,11 @@ const getTurnVariable = () => {
   return result;
 };
 
-const wrongMessage = (answer, correct) => {
-  console.log(`'${answer}' is wrong ;(. Correct answer was '${correct}'`);
-};
-
-const correctMessage = () => {
-  console.log('Correct!');
-};
-
 const question = () => {
   const answer = readlineSync.questionInt('Your answer: ');
   return answer;
 };
 
 export default () => {
-  game(message, getTurnVariable, 3, question, correctMessage, wrongMessage);
+  game(message, getTurnVariable, rightGuessNum, question);
 };
