@@ -1,6 +1,6 @@
 {
   "name": "lev_project-lvl1-s69",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",

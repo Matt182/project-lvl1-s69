@@ -1,8 +1,8 @@
-import readlineSync from 'readline-sync';
 import { cons } from 'hexlet-pairs';
 import game from '../game';
 import { prepareRandom } from '../randomInt';
 import balanceNumber from '../balanceNumber';
+import { askInteger } from '../userIO';
 
 const rightGuessNum = 3;
 
@@ -17,10 +17,7 @@ const getTurnVariable = () => {
   return result;
 };
 
-const question = () => {
-  const answer = readlineSync.questionInt('Your answer: ');
-  return answer;
-};
+const question = askInteger;
 
 export default () => {
   game(message, getTurnVariable, rightGuessNum, question);
