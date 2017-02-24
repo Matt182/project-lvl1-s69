@@ -8,7 +8,7 @@ const rightGuessNum = 3;
 
 const randomIntFunction = prepareRandom(0, 1000);
 
-const message = 'What is the result of the expression?\n';
+const message = 'Balance the given number.\n';
 
 const getTurnVariable = () => {
   const number = randomIntFunction();
