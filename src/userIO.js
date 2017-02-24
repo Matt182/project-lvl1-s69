@@ -4,5 +4,6 @@ export const print = (message) => {
   console.log(message);
 };
 export const askQuestion = (question) => {
-  readlineSync.question(question);
+  const answer = readlineSync.question(question);
+  return answer;
 };

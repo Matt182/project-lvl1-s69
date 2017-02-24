@@ -1,34 +1,35 @@
 import toDigits from 'to-digits';
 import { cons, car, cdr } from 'hexlet-pairs';
 
-const balancePair = (digit1, digit2) => {
-  const balancer = Math.floor(Math.abs(digit1 - digit2) / 2);
-  let balancedNum1 = 0;
-  let balancedNum2 = 0;
-  if (digit1 > digit2) {
-    balancedNum1 = digit1 - balancer;
-    balancedNum2 = digit2 + balancer;
-  } else {
-    balancedNum1 = digit1 + balancer;
-    balancedNum2 = digit2 - balancer;
-  }
-  const pair = cons(balancedNum1, balancedNum2);
+const balancePair = (max, min) => {
+  const balancer = Math.floor((max - min) / 2);
+  const balancedMax = max - balancer;
+  const balancedMin = min + balancer;
+  const pair = cons(balancedMax, balancedMin);
   return pair;
 };
 
-const preBalance = (digits) => {
-  const newDigits = digits;
+const sortDigits = (digits) => {
+  const sorted = digits.sort((a, b) => {
+    const result = a - b;
+    return result;
+  });
+  return sorted;
+};
+
+const balance = (digits) => {
   let unchanged = true;
-  for (let i = digits.length - 1; i > 0; i -= 1) {
-    if (Math.abs(digits[i] - digits[i - 1]) > 1) {
-      unchanged = false;
-      const balancedPair = balancePair(digits[i - 1], digits[i]);
-      newDigits[i - 1] = car(balancedPair);
-      newDigits[i] = cdr(balancedPair);
-    }
+  const newDigits = sortDigits(digits);
+  const max = newDigits[newDigits.length - 1];
+  const min = newDigits[0];
+  if (max - min > 1) {
+    unchanged = false;
+    const balancedPair = balancePair(max, min);
+    newDigits[newDigits.length - 1] = car(balancedPair);
+    newDigits[0] = cdr(balancedPair);
   }
   if (unchanged) return newDigits;
-  return preBalance(newDigits);
+  return balance(newDigits);
 };
 
 const toNumber = (digits) => {
@@ -41,11 +42,7 @@ const toNumber = (digits) => {
 
 export default (number) => {
   const digits = toDigits(number);
-  const preBalanced = preBalance(digits);
-  const sorted = preBalanced.sort((a, b) => {
-    const result = a - b;
-    return result;
-  });
-  const resultNumber = toNumber(sorted);
+  const balanced = balance(digits);
+  const resultNumber = toNumber(balanced);
   return resultNumber;
 };

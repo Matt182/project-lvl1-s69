@@ -13,7 +13,7 @@ const gameLoop = (name, getTurnVariable, rightGuessNum, totalRightGuessNum) => {
   if (result) {
     print('Correct!');
   } else {
-    print(`'${answer}' is wrong ;(. Correct answer was '${cdr(turn)}'`);
+    print(`'${actualAnswer}' is wrong ;(. Correct answer was '${cdr(turn)}'`);
     print(`Let's try again, ${name}`);
   }
   const guessNum = result ? rightGuessNum + 1 : rightGuessNum;
