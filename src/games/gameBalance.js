@@ -2,7 +2,6 @@ import { cons } from 'hexlet-pairs';
 import game from '../game';
 import { prepareRandom } from '../randomInt';
 import balanceNumber from '../balanceNumber';
-import { askInteger } from '../userIO';
 
 const rightGuessNum = 3;
 
@@ -17,8 +16,6 @@ const getTurnVariable = () => {
   return result;
 };
 
-const question = askInteger;
-
 export default () => {
-  game(message, getTurnVariable, rightGuessNum, question);
+  game(message, getTurnVariable, rightGuessNum);
 };

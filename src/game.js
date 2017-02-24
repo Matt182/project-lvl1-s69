@@ -1,14 +1,15 @@
 import { car, cdr } from 'hexlet-pairs';
-import { askName, print } from './userIO';
+import { askQuestion, print } from './userIO';
 
 const startRound = 0;
 
-const gameLoop = (name, getTurnVariable, rightGuessNum, totalRightGuessNum, question) => {
+const gameLoop = (name, getTurnVariable, rightGuessNum, totalRightGuessNum) => {
   if (rightGuessNum === totalRightGuessNum) return;
   const turn = getTurnVariable();
   print(`Question: ${car(turn)}`);
-  const answer = question();
-  const result = cdr(turn) === answer;
+  const answer = askQuestion('Your answer: ');
+  const actualAnswer = Number.isInteger(cdr(turn)) ? parseInt(answer, 10) : answer;
+  const result = cdr(turn) === actualAnswer;
   if (result) {
     print('Correct!');
   } else {
@@ -16,14 +17,14 @@ const gameLoop = (name, getTurnVariable, rightGuessNum, totalRightGuessNum, ques
     print(`Let's try again, ${name}`);
   }
   const guessNum = result ? rightGuessNum + 1 : rightGuessNum;
-  gameLoop(name, getTurnVariable, guessNum, totalRightGuessNum, question);
+  gameLoop(name, getTurnVariable, guessNum, totalRightGuessNum);
 };
 
-export default (message, getTurnVariable, rightGuessNum, question) => {
+export default (message, getTurnVariable, rightGuessNum) => {
   print('Welcome to the Brain Games!\n');
   print(message);
-  const name = askName();
+  const name = askQuestion('May I have your name? ');
   print(`\nHello, ${name}!`);
-  gameLoop(name, getTurnVariable, startRound, rightGuessNum, question);
+  gameLoop(name, getTurnVariable, startRound, rightGuessNum);
   print(`Congratulations, ${name}!`);
 };

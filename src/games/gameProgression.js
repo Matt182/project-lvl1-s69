@@ -2,7 +2,6 @@ import makeProgression from 'a-range';
 import { cons } from 'hexlet-pairs';
 import game from '../game';
 import { getRandomInt } from '../randomInt';
-import { askInteger } from '../userIO';
 
 const rightGuessNum = 3;
 
@@ -25,7 +24,6 @@ const prepareProgressionForQuestion = (progression) => {
   return result;
 };
 
-
 const getTurnVariable = () => {
   const progressionStep = getRandomInt(1, 20);
   const progressionStart = getRandomInt(1, 20);
@@ -35,8 +33,6 @@ const getTurnVariable = () => {
   return preparedProgression;
 };
 
-const question = askInteger;
-
 export default () => {
-  game(message, getTurnVariable, rightGuessNum, question);
+  game(message, getTurnVariable, rightGuessNum);
 };
