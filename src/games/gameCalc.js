@@ -13,7 +13,7 @@ const getRandomSign = () => {
 
 const randomIntFunction = prepareRandom(0, 100);
 
-const message = 'What is the result of the expression?\n';
+const message = 'What is the result of the expression?';
 
 const getTurnVariable = () => {
   const lvalue = randomIntFunction();

@@ -1,5 +1,5 @@
 import { car, cdr } from 'hexlet-pairs';
-import { askQuestion, print } from './userIO';
+import { askQuestion, print, printNewLine } from './userIO';
 
 const startRound = 0;
 
@@ -21,10 +21,13 @@ const gameLoop = (name, getTurnVariable, rightGuessNum, totalRightGuessNum) => {
 };
 
 export default (message, getTurnVariable, rightGuessNum) => {
-  print('Welcome to the Brain Games!\n');
+  print('Welcome to the Brain Games!');
+  printNewLine();
   print(message);
+  printNewLine();
   const name = askQuestion('May I have your name? ');
-  print(`\nHello, ${name}!`);
+  printNewLine();
+  print(`Hello, ${name}!`);
   gameLoop(name, getTurnVariable, startRound, rightGuessNum);
   print(`Congratulations, ${name}!`);
 };

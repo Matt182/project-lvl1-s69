@@ -5,7 +5,7 @@ import { getRandomInt } from '../randomInt';
 
 const rightGuessNum = 3;
 
-const message = 'What number is missing in this progression?\n';
+const message = 'What number is missing in this progression?';
 
 const progressionLength = 10;
 

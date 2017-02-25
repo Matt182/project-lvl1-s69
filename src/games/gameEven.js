@@ -6,7 +6,7 @@ const rightGuessNum = 3;
 
 const randomIntFunction = prepareRandom(0, 100);
 
-const message = 'Answer "yes" if number even otherwise answer "no".\n';
+const message = 'Answer "yes" if number even otherwise answer "no".';
 
 const getTurnVariable = () => {
   const randomInt = randomIntFunction();

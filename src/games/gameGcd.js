@@ -7,7 +7,7 @@ const rightGuessNum = 3;
 
 const randomIntFunction = prepareRandom(0, 100);
 
-const message = 'Find the greatest common divisor of given numbers.\n';
+const message = 'Find the greatest common divisor of given numbers.';
 
 const getTurnVariable = () => {
   const randomInt1 = randomIntFunction();
